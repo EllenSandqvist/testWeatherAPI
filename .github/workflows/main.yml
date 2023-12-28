@@ -1,0 +1,19 @@
+name: Hantera API-nycklar
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  handle-api-keys:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Använd API-nyckel
+      run: |
+        echo "${{ secrets.OPENWEATHERAPI }}" > api_key.txt
+        # Använd api_key.txt i din kod
